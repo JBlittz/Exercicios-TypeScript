@@ -20,8 +20,7 @@ const produto2: ProdutoA = {
 
 /*
 7. Opcional
-Adicione a propriedade opcional descricao a Produto. Escreva uma função que devolva a
-descrição ou o texto "Sem descrição".
+Adicione a propriedade opcional descricao a Produto. Escreva uma função que devolva a descrição ou o texto "Sem descrição".
 */
 type ProdutoB = {
   id: number;
@@ -46,9 +45,7 @@ function obterDescricao(produto: ProdutoB): string {
 
 /*
 8. type ou interface
-Defina Usuario usando interface, com id, nome e email opcional. Depois crie um tipo
-
-Administrador que acrescente a propriedade nivel: number.
+Defina Usuario usando interface, com id, nome e email opcional. Depois crie um tipo Administrador que acrescente a propriedade nivel: number.
 */
 type Usuario = {
   id: number;
@@ -61,8 +58,7 @@ interface Administrador extends Usuario {
 
 /*
 9. readonly
-Crie um tipo Pedido com id somente para leitura, total e status. Mostre uma atualização válida e
-explique qual atribuição deve falhar.
+Crie um tipo Pedido com id somente para leitura, total e status. Mostre uma atualização válida e explique qual atribuição deve falhar.
 */
 type Status = "Em aguardo" | "Em andamento" | "Concluído";
 type Pedido = {
@@ -73,8 +69,7 @@ type Pedido = {
 
 /*
 10. Utility types
-A partir de Produto, crie NovoProduto sem id e AtualizacaoProduto com todas as
-propriedades opcionais.
+A partir de Produto, crie NovoProduto sem id e AtualizacaoProduto com todas as propriedades opcionais.
 */
 type NovoProduto = Omit<ProdutoB, "id">;
 type AtualizacaoProduto = Partial<ProdutoB>;
