@@ -54,4 +54,3 @@ type Tamanho = "P" | "M" | "G";
 function processarTamaho(tamanho: Tamanho): void {
   console.log(`O tamanho é ${tamanho}`);
 }
-
