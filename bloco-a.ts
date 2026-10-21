@@ -16,7 +16,7 @@ const categoria = "livro";
 let habilitado = false;
 */
 let quantidade = 3; // number => let quantidade : number = 3;
-const categoria = "livro"; // string => let categoria : string = "livro";
+const categoria = "livro"; // tipo literal "livro"
 let habilitado = false; // boolean => let habilitado : boolean = false;
 
 /*
@@ -25,7 +25,7 @@ Crie uma função media(notas: number[]): number que devolva a média. Defina o 
 */
 function media(notas: number[]): number {
   if (notas.length === 0) {
-    return 0;
+    throw new Error("A lista de notas está vazia");
   }
   const soma = notas.reduce(
     (acumulador, notaAtual) => acumulador + notaAtual,

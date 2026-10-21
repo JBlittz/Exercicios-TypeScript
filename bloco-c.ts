@@ -4,11 +4,7 @@ Crie um tipo Identificador que aceite string ou number. Escreva uma função que
 */
 type Identicador = string | number;
 function sempreString(idNaoFormatado: Identicador): string {
-  if (typeof idNaoFormatado === "string") {
-    return "ID: " + idNaoFormatado;
-  } else {
-    return "ID: " + idNaoFormatado.toString;
-  }
+  return `ID: ${idNaoFormatado}`;
 }
 
 /*
@@ -18,9 +14,8 @@ Implemente formatar(valor: string | number): string. Para strings, devolva o tex
 function formatar(valor: string | number): string {
   if (typeof valor === "string") {
     return valor.toUpperCase();
-  } else {
-    return valor.toFixed(2);
   }
+  return valor.toFixed(2);
 }
 
 /*
@@ -47,13 +42,13 @@ function checarStatus(status: Status): string {
 Crie uma função calcularDesconto(preco: number, percentual: number): number. Rejeite valores negativos e percentuais acima de 100, usando uma estratégia clara.
 */
 function calcularDesconto(preco: number, percentual: number): number {
-  if (percentual > 100) {
-    return preco;
-  } else if (preco <= 0 || percentual <= 0) {
-    return 0;
-  } else {
-    return (preco * percentual) / 100;
+  if (!Number.isFinite(preco) || preco < 0) {
+    throw new Error("Preço inválido");
   }
+  if (!Number.isFinite(percentual) || percentual < 0 || percentual > 100) {
+    throw new Error("Percentual inválido");
+  }
+  return preco * (1 - percentual / 100);
 }
 
 /*
@@ -64,6 +59,4 @@ type Transformar = (texto: string) => string;
 function transforme(nomes: string[], callback: Transformar): string[] {
   return nomes.map(callback);
 }
-const emMaiusculas: Transformar = (nome) => nome.toUpperCase();
-const listaNomes: string[] = ["ana", "carlos", "beatriz"];
-const nomesModificados = transforme(listaNomes, emMaiusculas);
+const emMaiusculas = transforme(["ana", "carlos"], nome => nome.toUpperCase());

@@ -40,7 +40,7 @@ const produto4: ProdutoB = {
   descricao: "Caro",
 };
 function obterDescricao(produto: ProdutoB): string {
-  return produto.descricao ? produto.descricao : "Sem descrição";
+  return produto.descricao ?? "Sem descrição";
 }
 
 /*
@@ -60,11 +60,10 @@ interface Administrador extends Usuario {
 9. readonly
 Crie um tipo Pedido com id somente para leitura, total e status. Mostre uma atualização válida e explique qual atribuição deve falhar.
 */
-type Status = "Em aguardo" | "Em andamento" | "Concluído";
 type Pedido = {
   readonly id: number; // Deve dar erro ao editar
   total: number;
-  status: Status;
+  status: "aberto" | "pago";
 };
 
 /*
